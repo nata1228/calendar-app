@@ -1,6 +1,6 @@
 <template>
     <Header/>
-    <h2>カレンダー{{ currentDate}}</h2>
+    <h2>カレンダー{{ today }}</h2>
     <button @click="prevMonth">前の月</button>
     <button @click="nextMonth">次の月</button>
     <div class="month">
@@ -11,33 +11,15 @@
         </div>
     </div>
 </template>
-<style>
-.month{
-    max-width:1000px;
-    border-top:5px solid gray;
-    margin: 0 auto;
-}
 
-.week{
-    display:flex;
-    border-left:5px solid gray;
-}
-
-.day{
-    flex:1;min-height:
-    125px;border-right:5px solid gray;
-    border-bottom:5px solid gray;
-    padding-left: 1rem;
-    padding-top: 1rem;
-}
-</style>
 <script>
 import moment from "moment";
 import Header from "../Components/Header.vue";
 export default{
     data() {
         return {
-            currentDate: moment().format("LL"),
+            currentDate: moment(),
+            today: moment().format("YYYY,MM,DD"),
         };
     },
     props: {
