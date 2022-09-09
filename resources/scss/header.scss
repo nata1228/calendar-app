@@ -39,6 +39,7 @@ http://opensource.org/licenses/mit-license.php
     letter-spacing: 0.1em;
     cursor: pointer;
     outline: none;
+    margin: 10px;
 }
 
 .zdo_drawer_button .zdo_drawer_bar {
@@ -112,4 +113,14 @@ http://opensource.org/licenses/mit-license.php
 
 .zdo_drawer_button .zdo_drawer_bar {
     background-color: #2274a5;
+}
+
+header{
+    display: flex;
+}
+
+#icon{
+    width: 42px;
+    height: 42px;
+    margin: 5px;
 }

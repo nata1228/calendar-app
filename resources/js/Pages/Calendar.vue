@@ -1,12 +1,28 @@
 <template>
     <Header/>
-    <h2>カレンダー{{ today }}</h2>
-    <button @click="prevMonth">前の月</button>
-    <button @click="nextMonth">次の月</button>
+    
+    <div class="schedule_button">
+        <button class="original-button">ボタン</button>
+        <button class="original-button">ボタン</button>
+        <button class="original-button">ボタン</button>
+        <button class="original-button">ボタン</button>
+        <button class="original-button">ボタン</button>
+        <button class="original-button">ボタン</button>
+    </div>
+    
+
+    <h2>{{ today }}</h2>
+
+    <div class="month_button">
+        <button @click="prevMonth">前の月</button>
+        <button @click="nextMonth">次の月</button>
+    </div>
+    
     <div class="month">
         <div class="week" v-for="(week ,index) in calendars" :key="index">
             <div class="day" v-for="(day ,index) in week" :key="index">
                 {{ day.date}}
+                <img src="../../../public/imeges/sunny.png" alt="">
             </div>
         </div>
     </div>
@@ -15,6 +31,7 @@
 <script>
 import moment from "moment";
 import Header from "../Components/Header.vue";
+
 export default{
     data() {
         return {
