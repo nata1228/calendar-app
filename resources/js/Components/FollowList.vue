@@ -1,12 +1,7 @@
 <template>
-    <!-- <img src="../../../public/imeges/user_icon.png" alt=""> -->
-    <p>hogehoge</p>
-    <button></button>
-    <p>参加者</p>
-    <!-- <div class="" v-for="user in users">
-        <img src="../../../public/imeges/user_icon.png" alt="">
+    <div class="user_info" :class = "{active : isActive}">
         <p>hogehoge</p>
-    </div> -->
+    </div>
 </template>
 
 <script>
@@ -15,6 +10,9 @@ export default{
         return {
             
         };
+    },
+    props: {
+        isActive: Boolean
     },
     methods: {
         
