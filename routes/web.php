@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\FollowUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,6 @@ Route::middleware([
 
 Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
 Route::get('/show',[CalendarController::class, 'show'])->name('calendar.show');
+
+Route::post('/users/{user}/follow', [FollowUserController::class, 'follow'])->name('follow.follow');
+Route::post('/users/{user}/unfollow', [FollowUserController::class, 'unfollow'])->name('unfollow.unfollow');

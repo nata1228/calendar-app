@@ -1,7 +1,19 @@
 .user_info{
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    background: gray;
+    top: 0;
+    left: 0;
     display: none;
+    z-index: 9;
 
     &.active {
         display: block;
     }
+
+    .list-group {
+        width:50%;
+    }
 }
+

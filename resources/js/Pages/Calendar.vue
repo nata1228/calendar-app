@@ -1,5 +1,5 @@
 <template>
-    <Header/>
+    <Header :users="users"/>
     
     <div class="schedule_button">
         <button class="original-button">ボタン</button>
@@ -7,7 +7,7 @@
         <button class="original-button">ボタン</button>
         <button class="original-button">ボタン</button>
         <button class="original-button">ボタン</button>
-        <button class="original-button">ボタン</button>
+        <button class="original-button">追加</button>
     </div>
     
 
@@ -22,7 +22,7 @@
         <div class="week" v-for="(week ,index) in calendars" :key="index">
             <div class="day" v-for="(day ,index) in week" :key="index">
                 {{ day.date}}
-                <img src="../../../public/imeges/sunny.png" alt="">
+                <img src="../../../public/images/sunny.png" alt="">
             </div>
         </div>
     </div>
@@ -40,7 +40,8 @@ export default{
         };
     },
     props: {
-        test: Number
+        test: Number,
+        users: Array
     },
     components:{
         Header

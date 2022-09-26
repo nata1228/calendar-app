@@ -9,10 +9,10 @@
                 <span class="zdo_drawer_close zdo_drawer_text">CLOSE</span>
             </button>
         </div>
-        <img src="../../../public/imeges/user_icon.png" alt="" id="icon">
+        <img src="../../../public/images/user_icon.png" alt="" id="icon">
     </header>
 
-    <FollowList :isActive="isActive"/>
+    <FollowList :isActive="isActive" :users="users"/>
 </template>
 
 <script>
@@ -23,6 +23,9 @@ export default{
         return {
             isActive: false,
         };
+    },
+    props:{
+        users: Array
     },
     components:{
         FollowList
