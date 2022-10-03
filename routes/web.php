@@ -49,5 +49,4 @@ Route::middleware([
 Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
 Route::get('/show',[CalendarController::class, 'show'])->name('calendar.show');
 
-Route::post('/users/{user}/follow', [FollowUserController::class, 'follow'])->name('follow.follow');
-Route::post('/users/{user}/unfollow', [FollowUserController::class, 'unfollow'])->name('unfollow.unfollow');
+Route::get('/get', [FollowUserController::class, 'get_user'])->name('get.getuser');
