@@ -2,12 +2,10 @@
 
 namespace Database\Seeders;
 
-use Faker\Factory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\App;
 
-class UsersTableSeeder extends Seeder
+class FollowUsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,6 +14,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory()->count(15)->create();
+        \App\Models\FollowUser::factory()->count(15)->create();
     }
 }
