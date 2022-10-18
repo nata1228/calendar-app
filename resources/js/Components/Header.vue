@@ -33,6 +33,5 @@ export default{
     methods: {
         //
     },
-    components: { FollowList }
 }
 </script>

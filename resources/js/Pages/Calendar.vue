@@ -1,5 +1,6 @@
 <template>
     <Header :users="users"/>
+    <Modal :isActive="isActive"/>
     
     <div class="schedule_button">
         <button class="original-button">ボタン</button>
@@ -7,7 +8,7 @@
         <button class="original-button">ボタン</button>
         <button class="original-button">ボタン</button>
         <button class="original-button">ボタン</button>
-        <button class="original-button">追加</button>
+        <button type="button" class="original-button" @click="isActive = !isActive" :class="{active : isActive}">追加</button>
     </div>
     
 
@@ -31,12 +32,14 @@
 <script>
 import moment from "moment";
 import Header from "../Components/Header.vue";
+import Modal from "../Components/CalendarModal.vue";
 
 export default{
     data() {
         return {
             currentDate: moment(),
             today: moment().format("YYYY,MM,DD"),
+            isActive: false,
         };
     },
     props: {
@@ -44,7 +47,8 @@ export default{
         users: Array
     },
     components:{
-        Header
+        Header,
+        Modal
     },
     methods: {
         getStartDate() {
@@ -97,6 +101,5 @@ export default{
             return this.getCalendar();
         },
     },
-    components: { Header }
 }
 </script>

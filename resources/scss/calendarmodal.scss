@@ -1,0 +1,15 @@
+.calendarmodal{
+    width: 50%;
+    text-align: center;
+    padding: 0.5em 1em;
+    margin: 0 auto;
+    border: double 5px #4ec4d3;
+    display: none;
+
+    &.active{
+        display: block;
+    }
+}
+.btn btn-primary{
+    width: 20%;
+}
