@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\CalendarModalController;
 use App\Http\Controllers\FollowUserController;
 
 /*
@@ -48,5 +49,5 @@ Route::middleware([
 
 Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
 Route::get('/show',[CalendarController::class, 'show'])->name('calendar.show');
-
 Route::get('/get', [FollowUserController::class, 'get_user'])->name('get.getuser');
+Route::post('/create', [CalendarModalController::class, 'create'])->name('create.create');
