@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->date('start_date');
             $table->date('end_date');
-            $table->time('start_time');
+            $table->string('start_time')->nullable();
             $table->string('schedule_name');
-            $table->integer('button_color');
+            $table->string('button_color');
             $table->timestamps();
         });
     }
