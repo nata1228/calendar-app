@@ -15,7 +15,7 @@ class CalendarModalController extends Controller
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
             'start_time' => $request->start_time,
-            'this.button_color' => $request->button_color,
+            'button_color' => $request->button_color,
         ]);
     }
 }

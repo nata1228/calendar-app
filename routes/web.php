@@ -47,7 +47,10 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
-Route::get('/show',[CalendarController::class, 'show'])->name('calendar.show');
-Route::get('/get', [FollowUserController::class, 'get_user'])->name('get.getuser');
-Route::post('/create', [CalendarModalController::class, 'create'])->name('create.create');
+Route::group(['middleware' => 'auth'],function() {
+    Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar.index');
+    Route::get('/button', [CalendarController::class, 'get'])->name('button.get');
+    Route::get('/show',[CalendarController::class, 'show'])->name('calendar.show');
+    Route::get('/follow', [FollowUserController::class, 'get_user'])->name('follow.user');
+    Route::post('/schedule', [CalendarModalController::class, 'create'])->name('schedule.create');
+});
