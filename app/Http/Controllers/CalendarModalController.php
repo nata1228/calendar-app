@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 // use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Http\Request;
 use App\Models\Schedule;
+use Illuminate\Support\Facades\Auth;
 
 class CalendarModalController extends Controller
 {
@@ -16,6 +17,7 @@ class CalendarModalController extends Controller
             'end_date' => $request->end_date,
             'start_time' => $request->start_time,
             'button_color' => $request->button_color,
+            'user_id' => Auth::id(),
         ]);
     }
 }
