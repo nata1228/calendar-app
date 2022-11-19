@@ -19,7 +19,7 @@ export default{
     },
     methods: {
         getUser(){
-            axios.get("/follow")
+            axios.get("/get")
             .then(res => {
                 console.log(res.data);
                 this.followUsers = res.data;

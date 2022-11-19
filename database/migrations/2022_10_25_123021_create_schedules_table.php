@@ -19,9 +19,7 @@ return new class extends Migration
             $table->date('end_date');
             $table->string('start_time')->nullable();
             $table->string('schedule_name');
-            $table->string('button_color')->default('#fff');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('button_color');
             $table->timestamps();
         });
     }

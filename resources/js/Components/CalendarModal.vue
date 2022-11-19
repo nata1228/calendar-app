@@ -86,7 +86,7 @@ export default{
     },
     methods: {
         createSchedule(){
-            axios.post("/schedule",{
+            axios.post("/create",{
                 schedule_name: this.schedule_name,
                 start_date: this.start_date,
                 end_date: this.end_date,
@@ -99,7 +99,7 @@ export default{
                 this.end_date = '';
                 this.start_time = '';
                 this.button_color = '';
-                this.$emit('closeModal',false);
+                this.isActive = false;
             })
         },
     },

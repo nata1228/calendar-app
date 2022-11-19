@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Schedule;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Illuminate\Support\Facades\Auth;
 
 class CalendarController extends Controller
 {
@@ -20,10 +18,5 @@ class CalendarController extends Controller
 
     public function show(){
         return view('calendar.calendar');
-    }
-
-    public function get(){
-        $schedules = Schedule::where('user_id',Auth::id())->get();
-        return $schedules;
     }
 }    
