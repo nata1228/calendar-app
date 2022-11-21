@@ -8,7 +8,7 @@
         <button class="original-button">ボタン</button>
         <button class="original-button">ボタン</button>
         <button class="original-button">ボタン</button>
-        <button type="button" class="original-button" @click="isActive = !isActive" :class="{active : isActive}">追加</button>
+        <button type="button" class="original-button" @click="isActive = !isActive" :class="{active : isActive}">追加</button>　
     </div>
     
 
