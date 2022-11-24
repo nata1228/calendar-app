@@ -14,7 +14,7 @@ class CalendarController extends Controller
         $users = User::all();
         return Inertia::render('Calendar', [
             "test" => 1,
-            "users" => $users
+            "users" => $users,
         ]);
     }
 

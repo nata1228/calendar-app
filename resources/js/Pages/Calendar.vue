@@ -3,11 +3,7 @@
     <Modal :isActive="isActive" @closeModal="closeModal"/>
     
     <div class="schedule_button" v-for="schedule in schedules" :key="schdule">
-        <button class="original-button">ボタン</button>
-        <button class="original-button">ボタン</button>
-        <button class="original-button">ボタン</button>
-        <button class="original-button">ボタン</button>
-        <button class="original-button">ボタン</button>
+        <button class="original-button">{{schedule.schedule_name}}</button>
     </div>
     
     <button type="button" class="original-button" @click="isActive = !isActive" :class="{active : isActive}">追加</button>
@@ -46,7 +42,7 @@ export default{
     },
     props: {
         test: Number,
-        users: Array
+        users: Array,
     },
     components:{
         Header,
@@ -102,13 +98,13 @@ export default{
             axios.get("/button")
             .then(res => {
                 this.schedules = res.data;
-                console.log(res.data);
             })
         },
     },
     mounted() {
         console.log(this.getCalendar());
         console.log(this.test);
+        console.log(this.displayButton());
     },
     computed: {
         calendars() {
