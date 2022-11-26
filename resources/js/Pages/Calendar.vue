@@ -2,7 +2,7 @@
     <Header :users="users"/>
     <Modal :isActive="isActive" @closeModal="closeModal"/>
     
-    <div class="schedule_button" v-for="schedule in schedules" :key="schdule">
+    <div class="schedule_button" v-for="schedule in schedules" :key="schedule">
         <button class="original-button">{{schedule.schedule_name}}</button>
     </div>
     
@@ -98,13 +98,14 @@ export default{
             axios.get("/button")
             .then(res => {
                 this.schedules = res.data;
+                console.log(res.data);
             })
         },
     },
     mounted() {
         console.log(this.getCalendar());
         console.log(this.test);
-        console.log(this.displayButton());
+        this.displayButton();
     },
     computed: {
         calendars() {
