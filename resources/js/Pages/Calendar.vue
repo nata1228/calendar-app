@@ -98,15 +98,16 @@ export default{
         closeModal(){
             this.isActive = false;
         },
-        addButton(){
-            this.schedules = res.data;
+        addButton(new_schedule){
+            this.schedules = new_schedule;
+            console.log(new_schedule);
             this.displayButton();
         },
         displayButton(){
             axios.get("/button")
             .then(res => {
                 this.schedules = res.data;
-                console.log(res.data);
+                
             })
         },
     },
