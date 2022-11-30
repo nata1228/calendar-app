@@ -1,12 +1,16 @@
 <template>
     <Header :users="users"/>
-    <Modal :isActive="isActive" @closeModal="closeModal"/>
+    <Modal :isActive="isActive" @closeModal="closeModal" @addButton="addButton"/>
     
-    <div class="schedule_button" v-for="schedule in schedules" :key="schedule">
-        <button class="original-button">{{schedule.schedule_name}}</button>
+    <div class="button">
+        <div class="schedule_button" v-for="schedule in schedules" :key="schedule">
+            <button class="original-button">{{schedule.schedule_name}}</button>
+        </div>
+        <div class="add_button">
+            <button type="button" class="original-button" @click="isActive = !isActive" :class="{active : isActive}">追加</button>
+        </div>
     </div>
     
-    <button type="button" class="original-button" @click="isActive = !isActive" :class="{active : isActive}">追加</button>
 
     <h2>{{ today }}</h2>
 
@@ -18,7 +22,7 @@
     <div class="month">
         <div class="week" v-for="(week ,index) in calendars" :key="index">
             <div class="day" v-for="(day ,index) in week" :key="index">
-                {{ day.date}}
+                <p> {{ day.date}} </p>
                 <img src="../../../public/images/sunny.png" alt="">
             </div>
         </div>
@@ -93,6 +97,10 @@ export default{
         },
         closeModal(){
             this.isActive = false;
+        },
+        addButton(){
+            this.schedules = res.data;
+            this.displayButton();
         },
         displayButton(){
             axios.get("/button")

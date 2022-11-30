@@ -100,6 +100,7 @@ export default{
                 this.start_time = '';
                 this.button_color = '';
                 this.$emit('closeModal',false);
+                this.$emit('addButton',res.data);
             })
         },
     },

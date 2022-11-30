@@ -18,12 +18,23 @@ class CalendarController extends Controller
         ]);
     }
 
+    public function create(Request $request){
+        Schedule::create([
+            'schedule_name' => $request->schedule_name,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'start_time' => $request->start_time,
+            'button_color' => $request->button_color,
+            'user_id' => Auth::id(),
+        ]);
+        return $this->get_schedules();
+    }
+
     public function show(){
         return view('calendar.calendar');
     }
 
-    public function get(){
-        $schedules = Schedule::where('user_id',Auth::id())->get();
-        return $schedules;
+    public function get_schedules(){
+        return Schedule::where('user_id',Auth::id())->get();
     }
 }    
