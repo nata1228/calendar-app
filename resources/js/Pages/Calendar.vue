@@ -1,6 +1,6 @@
 <template>
     <Header :users="users"/>
-    <Modal :isActive="isActive" @closeModal="closeModal" @addButton="addButton"/>
+    <Modal :isActive="isActive" @closeModal="closeModal" @displayButton="displayButton"/>
     
     <div class="button">
         <div class="schedule_button" v-for="schedule in schedules" :key="schedule">
@@ -98,16 +98,10 @@ export default{
         closeModal(){
             this.isActive = false;
         },
-        addButton(new_schedule){
-            this.schedules = new_schedule;
-            console.log(new_schedule);
-            this.displayButton();
-        },
         displayButton(){
             axios.get("/button")
             .then(res => {
                 this.schedules = res.data;
-                
             })
         },
     },

@@ -95,14 +95,13 @@ export default{
                 button_color: this.button_color,
             })
             .then(res => {
-                this.new_schedule = res.data;
                 this.schedule_name = '';
                 this.start_date = '';
                 this.end_date = '';
                 this.start_time = '';
                 this.button_color = '';
                 this.$emit('closeModal',false);
-                this.$emit('addButton',this.new_schedule);
+                this.$emit('displayButton');
             })
         },
     },
