@@ -1,14 +1,14 @@
 <template>
     <Header :users="users"/>
-    <Modal :isActive="isActive"/>
+    <Modal :isActive="isActive" @closeModal="closeModal" @addButton="addButton"/>
     
-    <div class="schedule_button">
-        <button class="original-button">ボタン</button>
-        <button class="original-button">ボタン</button>
-        <button class="original-button">ボタン</button>
-        <button class="original-button">ボタン</button>
-        <button class="original-button">ボタン</button>
-        <button type="button" class="original-button" @click="isActive = !isActive" :class="{active : isActive}">追加</button>
+    <div class="button">
+        <div class="schedule_button" v-for="schedule in schedules" :key="schedule">
+            <button class="original-button">{{schedule.schedule_name}}</button>
+        </div>
+        <div class="add_button">
+            <button type="button" class="original-button" @click="isActive = !isActive" :class="{active : isActive}">追加</button>
+        </div>
     </div>
     
 
@@ -22,7 +22,7 @@
     <div class="month">
         <div class="week" v-for="(week ,index) in calendars" :key="index">
             <div class="day" v-for="(day ,index) in week" :key="index">
-                {{ day.date}}
+                <p> {{ day.date}} </p>
                 <img src="../../../public/images/sunny.png" alt="">
             </div>
         </div>
@@ -33,6 +33,7 @@
 import moment from "moment";
 import Header from "../Components/Header.vue";
 import Modal from "../Components/CalendarModal.vue";
+import axios from "axios";
 
 export default{
     data() {
@@ -40,11 +41,12 @@ export default{
             currentDate: moment(),
             today: moment().format("YYYY,MM,DD"),
             isActive: false,
+            schedules: [],
         };
     },
     props: {
         test: Number,
-        users: Array
+        users: Array,
     },
     components:{
         Header,
@@ -85,16 +87,34 @@ export default{
             }
             return calendars;
         },
+        // 翌月への変更
         nextMonth() {
             this.currentDate = moment(this.currentDate).add(1, "month");
         },
+        // 先月への変更
         prevMonth() {
             this.currentDate = moment(this.currentDate).subtract(1, "month");
+        },
+        closeModal(){
+            this.isActive = false;
+        },
+        addButton(new_schedule){
+            this.schedules = new_schedule;
+            console.log(new_schedule);
+            this.displayButton();
+        },
+        displayButton(){
+            axios.get("/button")
+            .then(res => {
+                this.schedules = res.data;
+                
+            })
         },
     },
     mounted() {
         console.log(this.getCalendar());
         console.log(this.test);
+        this.displayButton();
     },
     computed: {
         calendars() {
