@@ -1,6 +1,6 @@
 <template>
     <Header :users="users"/>
-    <Modal :isActive="isActive" @closeModal="closeModal" @addButton="addButton"/>
+    <AddScheduleModal :isActive="isActive" @closeModal="closeModal" @addButton="addButton"/>
     
     <div class="button">
         <div class="schedule_button" v-for="schedule in schedules" :key="schedule">
@@ -32,7 +32,7 @@
 <script>
 import moment from "moment";
 import Header from "../Components/Header.vue";
-import Modal from "../Components/CalendarModal.vue";
+import AddScheduleModal from "../Components/CalendarModal.vue";
 import axios from "axios";
 
 export default{
@@ -50,7 +50,7 @@ export default{
     },
     components:{
         Header,
-        Modal
+        AddScheduleModal
     },
     methods: {
         getStartDate() {

@@ -1,7 +1,7 @@
 <template>
     <Mail :mailActive="mailActive"/>
 
-    <div class="user_info" :class = "{active : isActive}">
+    <div class="user_info" :class = "{active : isHeader}">
         <button class="original-button" id="invitation_button" @click="mailActive = !mailActive" :class="{active : mailActive}">招待する</button>
         <ul class="list-group">
             <li class="list-group-item" v-for="user in users">{{user.name}}</li>
@@ -20,7 +20,7 @@ export default{
         }
     },
     props: {
-        isActive: Boolean,
+        isHeader: Boolean,
         users: Array,
     },
     components:{
