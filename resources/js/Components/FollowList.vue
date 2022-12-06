@@ -1,5 +1,8 @@
 <template>
+    <Mail :mailActive="mailActive"/>
+
     <div class="user_info" :class = "{active : isActive}">
+        <button class="original-button" id="invitation_button" @click="mailActive = !mailActive" :class="{active : mailActive}">招待する</button>
         <ul class="list-group">
             <li class="list-group-item" v-for="user in users">{{user.name}}</li>
         </ul>
@@ -8,14 +11,20 @@
 
 <script>
 import axios from 'axios';
+import Mail from "../Components/MailModal.vue"
 
 export default{
     data() {
-        followUsers:Array
+        return {
+            mailActive: false,
+        }
     },
     props: {
         isActive: Boolean,
         users: Array,
+    },
+    components:{
+        Mail
     },
     methods: {
         getUser(){
