@@ -1,7 +1,7 @@
 <template>
     <div class="user_info" :class = "{active : isActive}">
         <ul class="list-group">
-            <li class="list-group-item" v-for="user in users">{{user.name}}</li>
+            <li class="list-group-item" v-for="user in followUsers">{{user.name}}</li>
         </ul>
     </div>
 </template>
@@ -11,7 +11,9 @@ import axios from 'axios';
 
 export default{
     data() {
-        followUsers:Array
+        return {
+            followUsers: [],
+        };
     },
     props: {
         isActive: Boolean,
@@ -21,8 +23,8 @@ export default{
         getUser(){
             axios.get("/follow")
             .then(res => {
-                console.log(res.data);
                 this.followUsers = res.data;
+                console.log(res.data);
             })
         }
     },

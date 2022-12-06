@@ -67,6 +67,7 @@
 
 <script>
 import VSwatches from 'vue3-swatches';
+import Mixin from './../utility';
 
 export default{
     data() {
@@ -83,7 +84,8 @@ export default{
         isActive: Boolean
     },
     components:{
-        VSwatches 
+        VSwatches ,
+        Mixin,
     },
     methods: {
         createSchedule(){

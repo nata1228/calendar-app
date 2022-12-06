@@ -9,9 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class FollowUserController extends Controller
 {
+    // followed_user_id = フォロワーのid
     public function get_user(){
-        $followed_user_id = FollowUser::where('followed_user_id',Auth::id())->pluck('followed_user_id');
-        $user = User::whereIn('id',$followed_user_id)->get();
-        return response()->json($user);
+        $followed_user_id = FollowUser::where('followed_user_id',Auth::id())->pluck('id');
+        $follower = User::whereIn('id',$followed_user_id)->get();
+        return response()->json($follower);
     }
 }
