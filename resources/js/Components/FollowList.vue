@@ -1,5 +1,5 @@
 <template>
-    <Mail :mailActive="mailActive"/>
+    <Mail :mailActive="mailActive" @mailModal="mailModal"/>
 
     <div class="user_info" :class = "{active : isHeader}">
         <button class="original-button" id="invitation_button" @click="mailActive = !mailActive" :class="{active : mailActive}">招待する</button>
@@ -33,6 +33,9 @@ export default{
                 console.log(res.data);
                 this.followUsers = res.data;
             })
+        },
+        mailModal(){
+            this.mailActive = false;
         }
     },
     mounted(){

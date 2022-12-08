@@ -1,0 +1,28 @@
+.mail-items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.original-button {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    text-decoration: none;
+    color: #9b9b9b;
+    font-size: 16px;
+    border-radius: 50px;
+    width: 75px;
+    height: 37px;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    }
+
+.original-button:hover {
+    transform: translateY(2px);
+    box-shadow: 0 0 rgba(0, 0, 0, 0);
+    }
