@@ -54,5 +54,5 @@ Route::group(['middleware' => 'auth'],function() {
     Route::get('/show',[CalendarController::class, 'show'])->name('calendar.show');
     Route::get('/follow', [FollowUserController::class, 'get_user'])->name('follow.user');
     Route::post('/schedule', [CalendarController::class, 'create'])->name('schedule.create');
-    Route::get('/mail/send', [MailController::class, 'send'])->name('mail.send');
+    Route::post('/mail/send', [MailController::class, 'send'])->name('mail.send');
 });

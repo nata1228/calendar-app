@@ -10,13 +10,15 @@ use App\Models\User;
 class MailController extends Controller
 {
     public function send(Request $request){
-        $email = User::find($request->input('email'));
-
+        $user = User::where('email',$request->get('email'))->get('email'); 
+        \Log::debug($user);
         $name = 'test_user';
-        // $email = 'test@example.com';
-
-        Mail::send(new InvitationMail($name, $email));
-
-        return view('welcome');
+        // $email = $user->'email';
+        // $email = User::find($request->input('email'));
+            if($user){
+                Mail::send(new InvitationMail($name, $user));
+            }else{
+                return redirect('/localhost');
+            }
     }
 }

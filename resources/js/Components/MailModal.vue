@@ -2,7 +2,7 @@
     <div v-if="mailActive">
         <div class="mailmodal" :class = "{active : mailActive}">
             <div class="mail-items">
-                <input type="text" name="email" placeholder="メールアドレス">
+                <input type="text" name="email" placeholder="メールアドレス" v-model="email">
                 <button class="original-button" @click="sendMail" :class="{active : mailActive}">送信</button>
             </div>
         </div>
@@ -22,7 +22,7 @@ export default{
     },
     methods:{
         sendMail(){
-            axios.get("/mail/send",{
+            axios.post("/mail/send",{
                 email: this.email
             })
             .then(res => {
