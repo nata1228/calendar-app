@@ -4,6 +4,7 @@
             <div class="mail-items">
                 <input type="text" name="email" placeholder="メールアドレス" v-model="email">
                 <button class="original-button" @click="sendMail" :class="{active : mailActive}">送信</button>
+                <button @click="invitationUser">aaa</button>
             </div>
         </div>
     </div>
@@ -15,6 +16,7 @@ export default{
     data(){
         return {
             email:'',
+            statas:''
         };
     },
     props:{
@@ -26,8 +28,17 @@ export default{
                 email: this.email
             })
             .then(res => {
+                // console.log(res.data);
                 this.email = '';
                 this.$emit('mailModal', false);
+            })
+        },
+        invitationUser(){
+            axios.post("/invitation",{
+                email: this.email
+            })
+            .then(res => {
+                this.email = '';
             })
         }
     }

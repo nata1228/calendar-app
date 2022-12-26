@@ -4,9 +4,10 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\CalendarController;
-use App\Http\Controllers\CalendarModalController;
 use App\Http\Controllers\FollowUserController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\InvitationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -55,4 +56,6 @@ Route::group(['middleware' => 'auth'],function() {
     Route::get('/follow', [FollowUserController::class, 'get_user'])->name('follow.user');
     Route::post('/schedule', [CalendarController::class, 'create'])->name('schedule.create');
     Route::post('/mail/send', [MailController::class, 'send'])->name('mail.send');
+    Route::post('/invitation', [InvitationController::class, 'invitation'])->name('invitation.user');
+
 });
