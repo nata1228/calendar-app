@@ -21,8 +21,8 @@ class InvitationMail extends Mailable
         $this->name = $user->name;
         $this->email = $user->email;
         $this->id = $user->id;
-        \Log::debug($this->id);
-        $this->url = "http://localhost/invitation?following_user_id={$this->id}";
+        $this->app_url = config('app.url');
+        $this->url = "{$this->app_url}/invitation?following_user_id={$this->id}";
     }
 
     /**

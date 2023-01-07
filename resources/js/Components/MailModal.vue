@@ -16,7 +16,8 @@ export default{
     data(){
         return {
             email:'',
-            statas:''
+            statas:'',
+            messege:''
         };
     },
     props:{
@@ -33,14 +34,6 @@ export default{
                 this.$emit('mailModal', false);
             })
         },
-        invitationUser(){
-            axios.post("/invitation",{
-                email: this.email
-            })
-            .then(res => {
-                this.email = '';
-            })
-        }
     }
 }
 </script>
