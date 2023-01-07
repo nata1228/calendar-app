@@ -28,7 +28,7 @@ export default{
                 email: this.email
             })
             .then(res => {
-                // console.log(res.data);
+                console.log(res.data);
                 this.email = '';
                 this.$emit('mailModal', false);
             })

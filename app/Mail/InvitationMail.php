@@ -16,10 +16,13 @@ class InvitationMail extends Mailable
      *
      * @return void
      */
-    public function __construct($name, $email)
+    public function __construct($user)
     {
-        $this->name = $name;
-        $this->email = $email;
+        $this->name = $user->name;
+        $this->email = $user->email;
+        $this->id = $user->id;
+        \Log::debug($this->id);
+        $this->url = "http://localhost/invitation?following_user_id={$this->id}";
     }
 
     /**
@@ -34,6 +37,7 @@ class InvitationMail extends Mailable
             ->view('mail')
             ->with([
                 'name' => $this->name,
+                'url' => $this->url,
             ]);
     }
 }
