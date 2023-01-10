@@ -14,7 +14,7 @@ class MailController extends Controller
         $user = User::where('email',$request->email)->first(); 
         \Log::debug($user->id);
         \Log::debug(Auth::id());
-        if($user->id=Auth::id()){
+        if($user->id === Auth::id()){
             return [
                 'messege' => "同一ユーザーです"
             ];

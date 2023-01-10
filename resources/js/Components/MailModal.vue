@@ -4,7 +4,7 @@
             <div class="mail-items">
                 <input type="text" name="email" placeholder="メールアドレス" v-model="email">
                 <button class="original-button" @click="sendMail" :class="{active : mailActive}">送信</button>
-                <button @click="invitationUser">aaa</button>
+                {{ messege }}
             </div>
         </div>
     </div>
@@ -16,7 +16,6 @@ export default{
     data(){
         return {
             email:'',
-            statas:'',
             messege:''
         };
     },
@@ -30,8 +29,12 @@ export default{
             })
             .then(res => {
                 console.log(res.data);
-                this.email = '';
-                this.$emit('mailModal', false);
+                if(res.data.statas === 200){
+                    this.email = '';
+                    this.$emit('mailModal', false);
+                }else{
+                    this.messege = 'ユーザーが存在しません'
+                }
             })
         },
     }
